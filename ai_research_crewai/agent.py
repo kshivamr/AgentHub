@@ -16,3 +16,13 @@ research_agent = Agent(
     llm = llm,
     verbose = True
 )
+
+calculator_agent = Agent(
+    role = "Calculate AI",
+    goal = "Calculate the things",
+    backstory = "You are an experience calculator who calculate mathematical operations.",
+    llm = llm,
+    verbose = True
+
+
+)
