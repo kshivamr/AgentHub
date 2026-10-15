@@ -5,7 +5,7 @@ from crewai import Agent, LLM
 load_dotenv()
 
 llm = LLM(
-    model = "openai/gpt-oss-20b",
+    model = "groq/llama-3.1-70b-versatile",
     api_key=os.getenv("GROQ_API_KEY")
 )
 

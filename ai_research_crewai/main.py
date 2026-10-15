@@ -1,3 +1,12 @@
-from agent import calculator_agent
+from crewai import Crew
+from task import calculator_task
 
-print(calculator_agent)
+crew = Crew(
+    agents = [calculator_task.agent],
+    tasks = [calculator_task],
+    verbose = True
+)
+
+result = crew.kickoff()
+
+print(result.raw)
