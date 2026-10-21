@@ -1,34 +1,61 @@
 from graph import graph
 
 
-config = {
+user_a = {
     "configurable": {
-        "thread_id": "travel-1"
+        "thread_id": "user-A"
+    }
+}
+
+user_b = {
+    "configurable": {
+        "thread_id": "user-B"
     }
 }
 
 
-result = graph.invoke(
+graph.invoke(
     {
         "messages": [
             ("user", "I want to travel from Delhi to Dubai.")
         ]
     },
-    config
+    user_a
 )
 
-print("\nFirst response:")
-print(result["messages"][-1].content)
+
+graph.invoke(
+    {
+        "messages": [
+            ("user", "I want to travel from Mumbai to London.")
+        ]
+    },
+    user_b
+)
 
 
-result = graph.invoke(
+result_a = graph.invoke(
     {
         "messages": [
             ("user", "What was my destination?")
         ]
     },
-    config
+    user_a
 )
 
-print("\nSecond response:")
-print(result["messages"][-1].content)
+
+result_b = graph.invoke(
+    {
+        "messages": [
+            ("user", "What was my destination?")
+        ]
+    },
+    user_b
+)
+
+
+print("\nUser A:")
+print(result_a["messages"][-1].content)
+
+print("\nUser B:")
+print(result_b["messages"][-1].content)
